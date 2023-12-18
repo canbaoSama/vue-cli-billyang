@@ -1,6 +1,6 @@
 {
     "name": "vue-cli-billyang",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "创建ts+vite+vue3的项目模板",
     "type": "module",
     "main": "index.js",
