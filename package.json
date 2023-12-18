@@ -1,14 +1,14 @@
 {
-    "name": "vue-cli@billyang",
-    "version": "1.0.0",
-    "description": "",
+    "name": "vue-cli-billyang",
+    "version": "1.0.1",
+    "description": "创建ts+vite+vue3的项目模板",
     "type": "module",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "bin": {
-        "okii": "index.js"
+        "create": "index.js"
     },
     "keywords": [],
     "author": "",

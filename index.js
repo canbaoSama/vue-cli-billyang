@@ -18,7 +18,7 @@ import symbols from 'log-symbols'
 
 
 program.version('1.0.0', '-v, --version')
-    .command('init <name>')
+    .command('vue-temp <name>')
     .action((name) => {
         if(!fs.existsSync(name)){
             inquirer.prompt([
