@@ -1,12 +1,5 @@
 #!/usr/bin/env node
-// const fs = require('fs');
-// const program = require('commander');
-// const download = require('download-git-repo');
-// const handlebars = require('handlebars');
-// const inquirer = require('inquirer');
-// const ora = require('ora');
-// const chalk = require('chalk');
-// const symbols = require('log-symbols');
+
 import fs from 'fs'
 import { program } from 'commander'
 import clone from 'git-clone'
@@ -16,12 +9,22 @@ import ora from 'ora'
 import chalk from 'chalk'
 import symbols from 'log-symbols'
 
+const templateMap = {
+    'vue-template': 'https://github.com/canbaoSama/web-template.git',
+    'uni-app-template': 'https://github.com/canbaoSama/uni-app-template.git'
+}
 
 program.version('1.0.0', '-v, --version')
     .command('vue-temp <name>')
     .action((name) => {
         if(!fs.existsSync(name)){
             inquirer.prompt([
+                {
+                    type: 'list',  // 选择列表类型
+                    name: 'template',  // 存储用户选择结果的属性名
+                    message: '请选择创建模板',  // 问题提示信息
+                    choices: ['uni-app-template', 'vue-template']  // 可选项数组 
+                },
                 {
                     name: 'description',
                     message: '请输入项目描述'
@@ -33,7 +36,7 @@ program.version('1.0.0', '-v, --version')
             ]).then((answers) => {
                 const spinner = ora('正在下载模板...');
                 spinner.start();
-                clone('https://github.com/canbaoSama/web-template.git', name, {clone: true}, (err) => {
+                clone(templateMap[answers.template], name, {clone: true}, (err) => {
                     if(err){
                         spinner.fail();
                         console.log(symbols.error, chalk.red(err));
