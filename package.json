@@ -1,11 +1,15 @@
 {
     "name": "vue-cli-billyang",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "创建多种 vue3 的项目模板",
     "type": "module",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/canbaoSama/vue-cli-billyang"
     },
     "bin": {
         "create": "index.js"
